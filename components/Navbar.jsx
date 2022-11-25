@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu,AiOutlineMail, AiOutlineGithub} from 'react-icons/ai'
@@ -6,28 +6,43 @@ import {FaLinkedinIn} from 'react-icons/fa'
 
 const Navbar = () => {
     const [nav,setNav] = useState(false);
+    const [shadow,setShadow]=useState(false);
+
+    
     const handleNav = ()=>{
         return setNav(preValue=>!preValue)
     }
+
+    useEffect(() => {
+      const handleShadow=()=>{
+        if (window.scrollY >= 90 ) {
+            setShadow(true);
+        }else{
+            setShadow(false)
+        }
+      }
+      window.addEventListener('scroll',handleShadow)
+    }, [])
+    
   return (
-    <div className=' fixed w-full h-20 shadow-xl z-[100]  '>
+    <div className={shadow?' fixed w-full h-20 shadow-xl z-[100]  ':' fixed w-full h-20 z-[100]  '}>
         <div className=' flex justify-between items-center w-full h-full px-2 2xl:px-16  '>
             <Image src="/../public/assets/shakir_hanif_logo.png" alt="/" width={111} height={111} />
             <div>
                 <ul className=' hidden md:flex mr-5'>
-                    <Link href='/'>
+                    <Link href='/#home'>
                         <li className=' ml-10 text-sm hover:border-b border-amber-400 ease-in duration-150'>Home</li>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/#about'>
                         <li className=' ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 '>About</li>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/#skills'>
                         <li className=' ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 '>Skills</li>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/#projects'>
                         <li className=' ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 '>Projects</li>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/#contact'>
                         <li className=' ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 '>Contact</li>
                     </Link>
                 </ul>
