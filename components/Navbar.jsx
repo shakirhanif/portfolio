@@ -3,11 +3,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu,AiOutlineMail, AiOutlineGithub} from 'react-icons/ai'
 import {FaLinkedinIn} from 'react-icons/fa'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
     const [nav,setNav] = useState(false);
     const [shadow,setShadow]=useState(false);
+    const [navBg,setNavBg]=useState('#ecf0f3');
+    const [linkColor,setlinkColor]=useState('#1f2937');
+    const router=useRouter()
 
+    useEffect(() => {
+        if (router.asPath === '/todo-project') {
+            setNavBg('transparent')
+            setlinkColor('#ecf0f3')
+        }else{
+            setNavBg('#ecf0f3')
+            setlinkColor('#1f2937')
+        }
+    }, [router])
+    
     
     const handleNav = ()=>{
         return setNav(preValue=>!preValue)
@@ -25,13 +39,17 @@ const Navbar = () => {
     }, [])
     
   return (
-    <div className={shadow?' fixed w-full h-20 shadow-xl z-[100]  ':' fixed w-full h-20 z-[100]  '}>
+    <div
+     style={{backgroundColor:`${navBg}`}}
+     className={shadow?' fixed w-full h-20 shadow-xl z-[100]  ':' fixed w-full h-20 z-[100]  '}>
         <div className=' flex justify-between items-center w-full h-full px-2 2xl:px-16  '>
             <Link href={'/'}>
                 <Image src="/../public/assets/shakir_hanif_logo.png" alt="/" width={111} height={111} />
             </Link>
             <div>
-                <ul className=' hidden md:flex mr-5'>
+                <ul
+                style={{color:`${linkColor}`}}
+                className=' hidden md:flex mr-5'>
                     <Link href='/#home'>
                         <li className=' ml-10 text-sm hover:border-b border-amber-400 ease-in duration-150'>Home</li>
                     </Link>
@@ -49,7 +67,7 @@ const Navbar = () => {
                     </Link>
                 </ul>
                 <div onClick={handleNav} className=' md:hidden mr-5 hover:cursor-pointer'>
-                <AiOutlineMenu size={25}></AiOutlineMenu>
+                <AiOutlineMenu color={linkColor} size={25}></AiOutlineMenu>
                 </div>
             </div>
       </div>
