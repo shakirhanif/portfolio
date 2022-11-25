@@ -27,7 +27,9 @@ const Navbar = () => {
   return (
     <div className={shadow?' fixed w-full h-20 shadow-xl z-[100]  ':' fixed w-full h-20 z-[100]  '}>
         <div className=' flex justify-between items-center w-full h-full px-2 2xl:px-16  '>
-            <Image src="/../public/assets/shakir_hanif_logo.png" alt="/" width={111} height={111} />
+            <Link href={'/'}>
+                <Image src="/../public/assets/shakir_hanif_logo.png" alt="/" width={111} height={111} />
+            </Link>
             <div>
                 <ul className=' hidden md:flex mr-5'>
                     <Link href='/#home'>
@@ -51,13 +53,15 @@ const Navbar = () => {
                 </div>
             </div>
       </div>
-      <div className={nav?' md:hidden fixed left-4 top-0 w-full h-screen bg-black/70':null}>
+      <div className={nav?' md:hidden fixed left-4 top-0 w-full h-screen bg-black/70':'fixed top-0'}>
         <div className={nav?
             ' md:hidden fixed left-0 top-0 w-[75%] sm:[60%] md:[40%] h-screen bg-[#ecf0f3] p-5 ease-in duration-500':
-            'fixed left-[-100%] p-5 ease-in duration-500'
+            'fixed left-[-100%] p-5 ease-in duration-300'
             }>
             <div className='flex -ml-4 justify-between w-full items-center'>
+                <Link href={'/'} onClick={()=>setNav(false)}>
                 <Image src="/../public/assets/shakir_hanif_logo.png" alt="/" width={111} height={111} />
+                </Link>
                 <div onClick={handleNav} className=' mb-12 p-1 rounded-full shadow-lg shadow-gray-400 cursor-pointer'>
                     <AiOutlineClose size={25}></AiOutlineClose>
                 </div>
@@ -67,21 +71,31 @@ const Navbar = () => {
             </div>
             <div className='py-4 flex flex-col'>
                 <ul className='uppercase'>
-                    <li className=' w-20 my-4 mt-8 text-sm'>
+                    <Link  href={'/'}>
+                    <li onClick={()=>setNav(false)}  className=' w-20 my-4 mt-8 text-sm'>
                         Home
                     </li>
-                    <li className=' w-20 my-4 text-sm'>
+                    </Link>
+                    <Link   href={'/#about'}>
+                    <li  onClick={()=>setNav(false)} className=' w-20 my-4 text-sm'>
                         About
                     </li>
-                    <li className='w-20 my-4 text-sm'>
+                    </Link>
+                    <Link   href={'/#skills'}>
+                    <li  onClick={()=>setNav(false)} className=' w-20 my-4 text-sm'>
                         Skills
                     </li>
-                    <li className='w-20 my-4 text-sm'>
+                    </Link>
+                    <Link   href={'/#projects'}>
+                    <li  onClick={()=>setNav(false)} className=' w-20 my-4 text-sm'>
                         Projects
                     </li>
-                    <li className=' w-20 my-4 text-sm'>
+                    </Link>
+                    <Link   href={'/#contact'}>
+                    <li  onClick={()=>setNav(false)} className=' w-20 my-4 text-sm'>
                         Contact
                     </li>
+                    </Link>
                 </ul>
                 <div className=' pt-[4rem]'>
                     <p className=' uppercase tracking-widest text-gray-600'>Lets Connect</p>
