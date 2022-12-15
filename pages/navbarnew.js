@@ -48,6 +48,17 @@ const NavbarNew = () => {
     }, 7000);
   }
 
+  const [opacity, setOpacity] = useState(false);
+  const [nav, setNav] = useState("");
+  function navHandler() {
+    setNav((preValue) =>
+      preValue === "active-nav anim-navs" ? "" : "active-nav"
+    );
+    setTimeout(() => {
+      setNav((preValue) => (preValue === "" ? "" : "active-nav anim-navs"));
+    }, 100);
+  }
+
   return (
     <nav>
       <div className="nav-container">
@@ -60,7 +71,7 @@ const NavbarNew = () => {
         </div>
 
         <div className="nav-link-container">
-          <div className="nav-links nav-link-settings">
+          <div className={`nav-links nav-link-settings ${nav}`}>
             <div className="nav-menu-header">
               <div className="name-bar" style={{ paddingLeft: "5rem" }}>
                 Shakir Hanif
@@ -68,29 +79,59 @@ const NavbarNew = () => {
                 <span>Front-end Developer</span>
               </div>
             </div>
-            <div id="nth" className="nav-links-effect-container">
-              <a href="#home" className="nav-link">
+            <div
+              onMouseOver={() => setOpacity(true)}
+              onMouseOut={() => setOpacity(false)}
+              id="nth"
+              className="nav-links-effect-container"
+            >
+              <a
+                href="#home"
+                className={`nav-link ${
+                  opacity ? "opacity-30 hover:opacity-100" : null
+                }`}
+              >
                 <div className="link-anim-set">
-                  <div className="link-anim-set-p p1">Home</div>
+                  <div className="link-anim-set-p p1 ">Home</div>
                 </div>
               </a>
-              <a href="#about" className="nav-link">
+              <a
+                href="#about"
+                className={`nav-link ${
+                  opacity ? "opacity-30 hover:opacity-100" : null
+                }`}
+              >
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p2">About</div>
                 </div>
               </a>
-              <a href="#skills" className="nav-link">
+              <a
+                href="#skills"
+                className={`nav-link ${
+                  opacity ? "opacity-30 hover:opacity-100" : null
+                }`}
+              >
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p3">Skills</div>
                 </div>
               </a>
-              <a href="#projects" className="nav-link">
+              <a
+                href="#projects"
+                className={`nav-link ${
+                  opacity ? "opacity-30 hover:opacity-100" : null
+                }`}
+              >
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p3">Projects</div>
                 </div>
               </a>
 
-              <a href="#contact" className="nav-link">
+              <a
+                href="#contact"
+                className={`nav-link ${
+                  opacity ? "opacity-30 hover:opacity-100" : null
+                }`}
+              >
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p5">Contact</div>
                 </div>
@@ -109,8 +150,8 @@ const NavbarNew = () => {
               </div>
             </div>
           </div>
-          <button className="menu-btn" href="#">
-            <i className="fa-solid fa-bars-staggered">{AiOutlineMenu}</i>
+          <button className="menu-btn" onClick={navHandler} href="#">
+            <i className="fa-solid fa-bars-staggered">II</i>
           </button>
         </div>
       </div>
