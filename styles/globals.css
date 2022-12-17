@@ -406,7 +406,6 @@ i {
   .active-nav {
     position: fixed;
     left: 0;
-    top: 0;
     display: flex !important;
   }
   .anim-navs {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { Link as LinkS, animateScroll as scroll } from "react-scroll";
 
 const NavbarNew = () => {
   const [downloadCv, setDownloadCv] = useState(
@@ -78,78 +79,137 @@ const NavbarNew = () => {
       <div className="nav-container">
         <div className="nav-title">
           <div className="name-align">
-            <div className="name-bar" style={{ paddingLeft: "1rem" }}>
-              Shakir Hanif
-            </div>
+            <LinkS
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
+              <div
+                className="name-bar hover:cursor-pointer"
+                style={{ paddingLeft: "1rem" }}
+              >
+                Shakir Hanif
+              </div>
+            </LinkS>
           </div>
         </div>
 
         <div className="nav-link-container">
           <div className={`nav-links nav-link-settings ${nav}`}>
-            <div className="nav-menu-header">
-              <div className="name-bar" style={{ paddingLeft: "5rem" }}>
-                Shakir Hanif
-                <br />
-                <span>Full-Stack Web Developer</span>
+            <LinkS
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={500}
+              onClick={() => setNav("")}
+            >
+              <div className="nav-menu-header hover:cursor-pointer">
+                <div className="name-bar" style={{ paddingLeft: "5rem" }}>
+                  Shakir Hanif
+                  <br />
+                  <span>Full-Stack Web Developer</span>
+                </div>
               </div>
-            </div>
+            </LinkS>
             <div
               onMouseOver={() => setOpacity(true)}
               onMouseOut={() => setOpacity(false)}
               id="nth"
               className="nav-links-effect-container"
             >
-              <Link
-                href="/#home"
-                className={`nav-link ${
-                  opacity ? "opacity-30 hover:opacity-100" : null
-                }`}
+              <LinkS
+                activeClass="active"
+                to="home"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setNav("")}
               >
-                <div className="link-anim-set">
-                  <div className="link-anim-set-p p1 ">Home</div>
+                <div
+                  className={`nav-link ${
+                    opacity ? "opacity-30 hover:opacity-100" : null
+                  } hover:cursor-pointer`}
+                >
+                  <div className="link-anim-set">
+                    <div className="link-anim-set-p p1 ">Home</div>
+                  </div>
                 </div>
-              </Link>
-              <Link
-                href="/#about"
-                className={`nav-link ${
-                  opacity ? "opacity-30 hover:opacity-100" : null
-                }`}
+              </LinkS>
+              <LinkS
+                activeClass="active"
+                to="about"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setNav("")}
               >
-                <div className="link-anim-set">
-                  <div className="link-anim-set-p p2">About</div>
+                <div
+                  className={`nav-link ${
+                    opacity ? "opacity-30 hover:opacity-100" : null
+                  } hover:cursor-pointer`}
+                >
+                  <div className="link-anim-set">
+                    <div className="link-anim-set-p p2">About</div>
+                  </div>
                 </div>
-              </Link>
-              <Link
-                href="/#skills"
-                className={`nav-link ${
-                  opacity ? "opacity-30 hover:opacity-100" : null
-                }`}
+              </LinkS>
+              <LinkS
+                activeClass="active"
+                to="skills"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setNav("")}
               >
-                <div className="link-anim-set">
-                  <div className="link-anim-set-p p3">Skills</div>
+                <div
+                  className={`nav-link ${
+                    opacity ? "opacity-30 hover:opacity-100" : null
+                  } hover:cursor-pointer`}
+                >
+                  <div className="link-anim-set">
+                    <div className="link-anim-set-p p3">Skills</div>
+                  </div>
                 </div>
-              </Link>
-              <Link
-                href="/#projects"
-                className={`nav-link ${
-                  opacity ? "opacity-30 hover:opacity-100" : null
-                }`}
+              </LinkS>
+              <LinkS
+                activeClass="active"
+                to="projects"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setNav("")}
               >
-                <div className="link-anim-set">
-                  <div className="link-anim-set-p p3">Projects</div>
+                <div
+                  className={`nav-link ${
+                    opacity ? "opacity-30 hover:opacity-100" : null
+                  } hover:cursor-pointer`}
+                >
+                  <div className="link-anim-set">
+                    <div className="link-anim-set-p p3">Projects</div>
+                  </div>
                 </div>
-              </Link>
-
-              <Link
-                href="/#contact"
-                className={`nav-link ${
-                  opacity ? "opacity-30 hover:opacity-100" : null
-                }`}
+              </LinkS>
+              <LinkS
+                activeClass="active"
+                to="contact"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={() => setNav("")}
               >
-                <div className="link-anim-set">
-                  <div className="link-anim-set-p p5">Contact</div>
+                <div
+                  className={`nav-link ${
+                    opacity ? "opacity-30 hover:opacity-100" : null
+                  } hover:cursor-pointer`}
+                >
+                  <div className="link-anim-set">
+                    <div className="link-anim-set-p p5">Contact</div>
+                  </div>
                 </div>
-              </Link>
+              </LinkS>
             </div>
             <div className="download-center">
               <div onClick={cvClickHandler}>
