@@ -1,15 +1,10 @@
 import React from "react";
-import {
-  AiOutlineClose,
-  AiOutlineMenu,
-  AiOutlineMail,
-  AiOutlineGithub,
-} from "react-icons/ai";
+import { AiOutlineMail, AiOutlineGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const Main = () => {
   return (
-    <div id="home" className=" w-full h-screen text-center">
+    <div id="home" className=" w-full h-screen text-center bg-[#d4f7f6]">
       <div className="max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center">
         <div>
           <p className=" uppercase text-sm tracking-widest text-gray-600 ">

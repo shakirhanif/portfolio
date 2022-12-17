@@ -7,7 +7,7 @@ html {
 }
 @layer base {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide;
+    @apply text-[#1f2937] tracking-wide;
   }
   h1,
   h2,
@@ -82,90 +82,6 @@ i {
   display: flex;
   align-items: center;
 }
-
-/* .dot-link-effect {
-  position: absolute;
-  left: 10%;
-  bottom: 0px;
-  height: 4px;
-  width: 4rem;
-  border-radius: 15%;
-  box-shadow: 0 0 10px #b6b6b6;
-  background: #b6b6b6;
-  transition: 0.8s cubic-bezier(0.18, 0.89, 0.34, 1.1) all;
-  z-index: 0;
-  animation: dot-eff ease 5s 1s infinite;
-} */
-
-@keyframes dot-eff {
-  0% {
-    box-shadow: 0 0 10px #fff;
-  }
-
-  50% {
-    box-shadow: 0 0 25px #fff;
-  }
-  100% {
-    box-shadow: 0 0 10px #fff;
-  }
-}
-
-/* .active0 {
-  left: 10%;
-}
-.active1 {
-  left: 30%;
-}
-.active2 {
-  left: 50%;
-}
-.active3 {
-  left: 70%;
-}
-.active4 {
-  left: 90%;
-} */
-
-/* text-opactity */
-
-/* #nth a:nth-child(n):hover ~ .dot-link-effect {
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #fff;
-}
-
-#nth a:nth-child(1):hover ~ .dot-link-effect {
-  left: 10%;
-}
-
-#nth a:nth-child(2):hover ~ .dot-link-effect {
-  left: 30%;
-}
-
-#nth a:nth-child(3):hover ~ .dot-link-effect {
-  left: 50%;
-}
-
-#nth a:nth-child(4):hover ~ .dot-link-effect {
-  left: 70%;
-}
-
-#nth a:nth-child(5):hover ~ .dot-link-effect {
-  left: 90%;
-} */
-
-.link-numbers {
-  font-size: 15px;
-  font-family: consolas;
-  text-align: right;
-  color: #353535;
-  opacity: 0.5;
-  transition: 0.3s;
-}
-
-.slash {
-  letter-spacing: 4px;
-}
-
 .nav-title {
   display: flex;
   align-items: center;
@@ -488,7 +404,9 @@ i {
   }
 
   .active-nav {
-    position: absolute;
+    position: fixed;
+    left: 0;
+    top: 0;
     display: flex !important;
   }
   .anim-navs {

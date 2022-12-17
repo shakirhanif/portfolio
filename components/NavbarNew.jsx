@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const NavbarNew = () => {
   const [downloadCv, setDownloadCv] = useState(
@@ -55,12 +54,27 @@ const NavbarNew = () => {
       preValue === "active-nav anim-navs" ? "" : "active-nav"
     );
     setTimeout(() => {
-      setNav((preValue) => (preValue === "" ? "" : "active-nav anim-navs"));
+      setNav((preValue) => preValue + " anim-navs");
     }, 100);
   }
 
+  const [shadow, setShadow] = useState(false);
+  useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
+  }, []);
   return (
-    <nav>
+    <nav
+      className={
+        shadow ? " fixed w-full shadow-xl z-[100]  " : " fixed w-full z-[100]  "
+      }
+    >
       <div className="nav-container">
         <div className="nav-title">
           <div className="name-align">
@@ -76,7 +90,7 @@ const NavbarNew = () => {
               <div className="name-bar" style={{ paddingLeft: "5rem" }}>
                 Shakir Hanif
                 <br />
-                <span>Front-end Developer</span>
+                <span>Full-Stack Web Developer</span>
               </div>
             </div>
             <div
@@ -85,8 +99,8 @@ const NavbarNew = () => {
               id="nth"
               className="nav-links-effect-container"
             >
-              <a
-                href="#home"
+              <Link
+                href="/#home"
                 className={`nav-link ${
                   opacity ? "opacity-30 hover:opacity-100" : null
                 }`}
@@ -94,9 +108,9 @@ const NavbarNew = () => {
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p1 ">Home</div>
                 </div>
-              </a>
-              <a
-                href="#about"
+              </Link>
+              <Link
+                href="/#about"
                 className={`nav-link ${
                   opacity ? "opacity-30 hover:opacity-100" : null
                 }`}
@@ -104,9 +118,9 @@ const NavbarNew = () => {
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p2">About</div>
                 </div>
-              </a>
-              <a
-                href="#skills"
+              </Link>
+              <Link
+                href="/#skills"
                 className={`nav-link ${
                   opacity ? "opacity-30 hover:opacity-100" : null
                 }`}
@@ -114,9 +128,9 @@ const NavbarNew = () => {
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p3">Skills</div>
                 </div>
-              </a>
-              <a
-                href="#projects"
+              </Link>
+              <Link
+                href="/#projects"
                 className={`nav-link ${
                   opacity ? "opacity-30 hover:opacity-100" : null
                 }`}
@@ -124,10 +138,10 @@ const NavbarNew = () => {
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p3">Projects</div>
                 </div>
-              </a>
+              </Link>
 
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 className={`nav-link ${
                   opacity ? "opacity-30 hover:opacity-100" : null
                 }`}
@@ -135,7 +149,7 @@ const NavbarNew = () => {
                 <div className="link-anim-set">
                   <div className="link-anim-set-p p5">Contact</div>
                 </div>
-              </a>
+              </Link>
             </div>
             <div className="download-center">
               <div onClick={cvClickHandler}>
@@ -150,8 +164,16 @@ const NavbarNew = () => {
               </div>
             </div>
           </div>
-          <button className="menu-btn" onClick={navHandler} href="#">
-            <i className="fa-solid fa-bars-staggered">II</i>
+          <button
+            className="menu-btn shadow-none rounded-none bg-none"
+            onClick={navHandler}
+            href="#"
+          >
+            {nav !== "active-nav anim-navs" ? (
+              <AiOutlineMenu></AiOutlineMenu>
+            ) : (
+              <AiOutlineClose></AiOutlineClose>
+            )}
           </button>
         </div>
       </div>

@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useRouter } from "next/router";
+import { Link as LinkS, animateScroll as scroll } from "react-scroll";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -69,31 +70,61 @@ const Navbar = () => {
             style={{ color: `${linkColor}` }}
             className=" hidden md:flex mr-5"
           >
-            <Link href="/#home">
+            <LinkS
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
               <li className=" ml-10 text-sm hover:border-b border-amber-400 ease-in duration-150">
                 Home
               </li>
-            </Link>
-            <Link href="/#about">
+            </LinkS>
+            <LinkS
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
               <li className=" ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 ">
                 About
               </li>
-            </Link>
-            <Link href="/#skills">
+            </LinkS>
+            <LinkS
+              activeClass="active"
+              to="skills"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
               <li className=" ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 ">
                 Skills
               </li>
-            </Link>
-            <Link href="/#projects">
+            </LinkS>
+            <LinkS
+              activeClass="active"
+              to="projects"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
               <li className=" ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 ">
                 Projects
               </li>
-            </Link>
-            <Link href="/#contact">
+            </LinkS>
+            <LinkS
+              activeClass="active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              duration={500}
+            >
               <li className=" ml-10 text-sm hover:border-b  border-amber-400 ease-in duration-150 ">
                 Contact
               </li>
-            </Link>
+            </LinkS>
           </ul>
           <div
             onClick={handleNav}
