@@ -87,7 +87,7 @@ const NavbarNew = () => {
               duration={500}
             >
               <div
-                className="name-bar hover:cursor-pointer"
+                className="name-bar text-[#5651e5] font-extrabold font-serif hover:cursor-pointer"
                 style={{ paddingLeft: "1rem" }}
               >
                 Shakir Hanif
