@@ -107,7 +107,10 @@ const NavbarNew = () => {
               onClick={() => setNav("")}
             >
               <div className="nav-menu-header hover:cursor-pointer">
-                <div className="name-bar" style={{ paddingLeft: "5rem" }}>
+                <div
+                  className="name-bar"
+                  style={{ paddingLeft: "2rem", paddingRight: "2rem" }}
+                >
                   Shakir Hanif
                   <br />
                   <span>Full-Stack Web Developer</span>
