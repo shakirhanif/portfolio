@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const Contact = () => {
-  const [thisForm, setThisForm] = useState(false);
+  const [sendForm, setSendForm] = useState("Send Message");
   const [myForm, setMyForm] = useState({
     name: "",
     email: "",
@@ -26,6 +26,12 @@ const Contact = () => {
         subject: "",
       });
     }, 100);
+    setTimeout(() => {
+      setSendForm("Message Sent Successfully");
+    }, 1200);
+    setTimeout(() => {
+      setSendForm("Send Message");
+    }, 7000);
   };
   const {
     handleSubmit,
@@ -102,7 +108,7 @@ const Contact = () => {
                     </label>
                     <input
                       {...register("name", {
-                        required: "Please enter username",
+                        required: "Please enter name",
                       })}
                       id="name"
                       className=" border-2 rounded-lg flex border-gray-300 "
@@ -124,16 +130,16 @@ const Contact = () => {
                       className=" border-2 rounded-lg flex border-gray-300 "
                       type="text"
                       id="phone"
-                      {...register("phone", {
-                        required: "Please enter phone",
-                      })}
+                      {...register("phone")}
                       value={myForm.phone}
                       onChange={(e) =>
                         setMyForm({ ...myForm, phone: e.target.value })
                       }
                     />
                     {errors.phone ? (
-                      <div className=" text-red-500">{errors.name.message}</div>
+                      <div className=" text-red-500">
+                        {errors.phone.message}
+                      </div>
                     ) : null}
                   </div>
                 </div>
@@ -154,7 +160,7 @@ const Contact = () => {
                     }
                   />
                   {errors.email ? (
-                    <div className=" text-red-500">{errors.name.message}</div>
+                    <div className=" text-red-500">{errors.email.message}</div>
                   ) : null}
                 </div>
                 <div className=" flex flex-col py-2 ">
@@ -174,7 +180,9 @@ const Contact = () => {
                     }
                   />
                   {errors.subject ? (
-                    <div className=" text-red-500">{errors.name.message}</div>
+                    <div className=" text-red-500">
+                      {errors.subject.message}
+                    </div>
                   ) : null}
                 </div>
                 <div className=" flex flex-col py-2 ">
@@ -184,9 +192,9 @@ const Contact = () => {
                   <textarea
                     id="message"
                     {...register("message", {
-                      required: "Please enter username",
+                      required: "Please enter Message",
                     })}
-                    rows="10"
+                    rows="5"
                     className=" border-2 rounded-lg p-3 border-gray-300 "
                     value={myForm.message}
                     onChange={(e) =>
@@ -194,18 +202,27 @@ const Contact = () => {
                     }
                   />
                   {errors.message ? (
-                    <div className=" text-red-500">{errors.name.message}</div>
+                    <div className=" text-red-500">
+                      {errors.message.message}
+                    </div>
                   ) : null}
                 </div>
-                <button
+                <div
                   onClick={() => {
-                    setThisForm(true);
-                    resetForm();
+                    myForm.phone === "" ||
+                    myForm.name === "" ||
+                    myForm.email === "" ||
+                    myForm.subject === "" ||
+                    myForm.message === ""
+                      ? null
+                      : resetForm();
                   }}
-                  className=" w-full p-4 text-gray-100 mt-4 "
+                  className=" w-full flex justify-center p-4 mt-4 "
                 >
-                  Send Message
-                </button>
+                  <button className="border-2 bg-[#5651e5] p-2 px-3 rounded-md text-white active:scale-95 ease-in duration-75 hover:bg-[#1f18d8] hover:cursor-pointer hover:scale-105">
+                    {sendForm}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
