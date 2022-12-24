@@ -1,6 +1,4 @@
-import React from "react";
-import { AiOutlineMail, AiOutlineGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import React, { useEffect } from "react";
 import Terminal from "./Terminal";
 
 const Main = () => {

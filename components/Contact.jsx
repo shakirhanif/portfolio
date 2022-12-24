@@ -1,11 +1,51 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineMail, AiOutlineGithub } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { BsTelephone } from "react-icons/bs";
 import { Link as LinkS, animateScroll as scroll } from "react-scroll";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Contact = () => {
+  const [thisForm, setThisForm] = useState(false);
+  const [myForm, setMyForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    subject: "",
+  });
+  const resetForm = () => {
+    setTimeout(() => {
+      setMyForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        subject: "",
+      });
+    }, 100);
+  };
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const submitHandler = async ({ name, phone, email, subject, message }) => {
+    // console.log(email);
+    try {
+      await axios.post("api/message", {
+        name,
+        phone,
+        email,
+        subject,
+        message,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div id="contact" className="w-full lg:h-screen">
       <div className=" max-w-[1240px] px-2 py-16 w-full ">
@@ -33,15 +73,20 @@ const Contact = () => {
               </div>
               <div>
                 <p className="uppercase pt-4 text-center">Contact with me</p>
-                <div className=" flex items-center justify-between px-20 pt-4">
-                  <div className="mx-4 rounded-full shadow-lg shadow-gray-500 p-3 cursor-pointer hover:scale-105 ease-in duration-200">
-                    <FaLinkedinIn size={20} />
-                  </div>
-                  <div className="mx-4 rounded-full shadow-lg shadow-gray-500 p-3 cursor-pointer hover:scale-105 ease-in duration-200">
-                    <AiOutlineGithub size={20} />
-                  </div>
-                  <div className="mx-4 rounded-full shadow-lg shadow-gray-500 p-3 cursor-pointer hover:scale-105 ease-in duration-200">
+                <div className=" flex flex-col px-20 pt-4">
+                  <Link href="https://github.com/shakirhanif/" target="_blank">
+                    <div className=" flex items-center py-2 hover:scale-105 ease-in duration-100 ">
+                      <AiOutlineGithub size={20} />
+                      <p className=" mx-2">github.com/shakirhanif</p>
+                    </div>
+                  </Link>
+                  <div className=" flex items-center py-2 hover:cursor-default hover:scale-105 ease-in duration-100 ">
                     <AiOutlineMail size={20} />
+                    <p className=" mx-2">shakirhanif@hotmail.com</p>
+                  </div>
+                  <div className=" flex items-center py-2 hover:cursor-default hover:scale-105 ease-in duration-100 ">
+                    <BsTelephone size={20} />
+                    <p className=" mx-2">0321-4852967</p>
                   </div>
                 </div>
               </div>
@@ -49,55 +94,116 @@ const Contact = () => {
           </div>
           <div className=" col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4 ">
             <div className="p-4">
-              <form>
+              <form onSubmit={handleSubmit(submitHandler)}>
                 <div className=" grid md:grid-cols-2 gap-4 w-full py-2 ">
                   <div className=" flex flex-col ">
-                    <label htmlFor="" className=" uppercase text-sm py-2 ">
+                    <label htmlFor="name" className=" uppercase text-sm py-2 ">
                       Name
                     </label>
                     <input
+                      {...register("name", {
+                        required: "Please enter username",
+                      })}
+                      id="name"
                       className=" border-2 rounded-lg flex border-gray-300 "
                       type="text"
+                      value={myForm.name}
+                      onChange={(e) =>
+                        setMyForm({ ...myForm, name: e.target.value })
+                      }
                     />
+                    {errors.name ? (
+                      <div className=" text-red-500">{errors.name.message}</div>
+                    ) : null}
                   </div>
                   <div className=" flex flex-col ">
-                    <label htmlFor="" className=" uppercase text-sm py-2 ">
+                    <label htmlFor="phone" className=" uppercase text-sm py-2 ">
                       Phone
                     </label>
                     <input
                       className=" border-2 rounded-lg flex border-gray-300 "
                       type="text"
+                      id="phone"
+                      {...register("phone", {
+                        required: "Please enter phone",
+                      })}
+                      value={myForm.phone}
+                      onChange={(e) =>
+                        setMyForm({ ...myForm, phone: e.target.value })
+                      }
                     />
+                    {errors.phone ? (
+                      <div className=" text-red-500">{errors.name.message}</div>
+                    ) : null}
                   </div>
                 </div>
                 <div className=" flex flex-col py-2 ">
-                  <label htmlFor="" className=" uppercase text-sm py-2 ">
+                  <label htmlFor="email" className=" uppercase text-sm py-2 ">
                     Email
                   </label>
                   <input
                     className=" border-2 rounded-lg flex border-gray-300 "
                     type="email"
+                    id="email"
+                    {...register("email", {
+                      required: "Please enter email",
+                    })}
+                    value={myForm.email}
+                    onChange={(e) =>
+                      setMyForm({ ...myForm, email: e.target.value })
+                    }
                   />
+                  {errors.email ? (
+                    <div className=" text-red-500">{errors.name.message}</div>
+                  ) : null}
                 </div>
                 <div className=" flex flex-col py-2 ">
-                  <label htmlFor="" className=" uppercase text-sm py-2 ">
+                  <label htmlFor="subject" className=" uppercase text-sm py-2 ">
                     Subject
                   </label>
                   <input
                     className=" border-2 rounded-lg flex border-gray-300 "
                     type="text"
+                    id="subject"
+                    {...register("subject", {
+                      required: "Please enter subject",
+                    })}
+                    value={myForm.subject}
+                    onChange={(e) =>
+                      setMyForm({ ...myForm, subject: e.target.value })
+                    }
                   />
+                  {errors.subject ? (
+                    <div className=" text-red-500">{errors.name.message}</div>
+                  ) : null}
                 </div>
                 <div className=" flex flex-col py-2 ">
-                  <label htmlFor="" className=" uppercase text-sm py-2 ">
+                  <label htmlFor="message" className=" uppercase text-sm py-2 ">
                     Message
                   </label>
                   <textarea
+                    id="message"
+                    {...register("message", {
+                      required: "Please enter username",
+                    })}
                     rows="10"
                     className=" border-2 rounded-lg p-3 border-gray-300 "
-                  ></textarea>
+                    value={myForm.message}
+                    onChange={(e) =>
+                      setMyForm({ ...myForm, message: e.target.value })
+                    }
+                  />
+                  {errors.message ? (
+                    <div className=" text-red-500">{errors.name.message}</div>
+                  ) : null}
                 </div>
-                <button className=" w-full p-4 text-gray-100 mt-4 ">
+                <button
+                  onClick={() => {
+                    setThisForm(true);
+                    resetForm();
+                  }}
+                  className=" w-full p-4 text-gray-100 mt-4 "
+                >
                   Send Message
                 </button>
               </form>
