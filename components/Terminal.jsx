@@ -1,7 +1,8 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { VscChromeMaximize } from "react-icons/vsc";
+import { VscChromeMaximize, VscChromeMinimize } from "react-icons/vsc";
 import { BsTerminalFill } from "react-icons/bs";
+
 import { animateScroll as scroll } from "react-scroll";
 
 const TerminalScreen = () => {
@@ -34,7 +35,7 @@ const TerminalScreen = () => {
 };
 const Terminal = ({ theme, setTheme }) => {
   const [maximized, setMaximized] = React.useState(false);
-  const [title, setTitle] = React.useState("React Terminal");
+  const [title, setTitle] = React.useState("shakirhanif@hotmail.com");
   const [close, setClose] = React.useState(false);
   const handleClose = () => setClose(!close);
   const handleMinMax = () => {
@@ -76,7 +77,7 @@ const Terminal = ({ theme, setTheme }) => {
             className="btn green hover:cursor-pointer"
             onClick={handleMinMax}
           >
-            <VscChromeMaximize />
+            {maximized ? <VscChromeMinimize /> : <VscChromeMaximize />}
           </div>
         </div>
         <span id="title" style={{ color: theme.window.color }}>
