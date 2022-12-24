@@ -219,7 +219,7 @@ const Contact = () => {
                   }}
                   className=" w-full flex justify-center p-4 mt-4 "
                 >
-                  <button className="border-2 bg-[#5651e5] p-2 px-3 rounded-md text-white active:scale-95 ease-in duration-75 hover:bg-[#1f18d8] hover:cursor-pointer hover:scale-105">
+                  <button className="border-2 bg-[#5651e5] p-2 px-3 rounded-md text-white active:scale-95 ease-in duration-75 hover:bg-[#1a14c4] hover:cursor-pointer hover:scale-105">
                     {sendForm}
                   </button>
                 </div>
