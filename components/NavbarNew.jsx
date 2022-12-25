@@ -216,14 +216,15 @@ const NavbarNew = () => {
             </div>
             <div className="download-center">
               <div onClick={cvClickHandler}>
-                <Link
-                  href="#cv"
+                <a
+                  href="/assets/shakir-hanif-cv.pdf"
+                  download="ShakirCv"
                   id="downloadCv"
                   className="download-cv"
                   style={{ pointerEvents: `${pointerEvent ? "auto" : "none"}` }}
                 >
                   {downloadCv}
-                </Link>
+                </a>
               </div>
             </div>
           </div>
