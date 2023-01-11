@@ -10,6 +10,7 @@ const ProjectCards = () => {
         <p className=" text-xl tracking-widest text-[#5651e5]">Projects</p>
         <h2 className="py-4 pb-8">What I've Built</h2>
         <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+          {/* this is test if branch publish */}
           <ProjectCard
             img_src={pak_explorers}
             img_alt="Pak-Explorers Image"
