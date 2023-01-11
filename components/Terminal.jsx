@@ -645,6 +645,22 @@ class Field extends React.Component {
               "Built with NextJs,NextAuth,Node,Express,MongoDb,TailwindCss",
               "This is a Simple yet complete ecommerece store with full functionality and backend",
               "",
+              "Weather App",
+              "Built with Node, Express, EJS",
+              "This is single page weather web app made by using express and ejs. It shows weather of a city by searched parameter and retrieve it from openweather api.",
+              "",
+              "Sticky",
+              "Built with React, TailwindCSS, ReactIcons",
+              "This is a sticky notes app to keep track of daily tasks.",
+              "",
+              "Drum Kit",
+              "Built with HTML, CSS, JavaScript",
+              "a web page which emulate sounds of drum kit, its quite fun actually.",
+              "",
+              "Dice Game",
+              "Built with HTML, CSS, JavaScript",
+              "This is a simple website which roll dices randomly, its just fun app if you dont have real dices lying around.",
+              "",
             ],
             hasBuffer: true,
           },
@@ -660,6 +676,22 @@ class Field extends React.Component {
           {
             title: "osum-store",
             live: "https://ecommerce-osum.vercel.app/",
+          },
+          {
+            title: "Weather App",
+            live: "https://magenta-rose-dog-cap.cyclic.app/",
+          },
+          {
+            title: "Sticky",
+            live: "https://sticky-7e0d8.web.app/",
+          },
+          {
+            title: "Drum Kit",
+            live: "https://drum-kit-85ef6.firebaseapp.com/",
+          },
+          {
+            title: "Dice Game",
+            live: "https://dicegame-435b8.web.app/",
           },
         ];
 
