@@ -2,6 +2,10 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import pak_explorers from "../public/assets/projects/pak-explorers.png";
 import osum_project from "../public/assets/projects/osum_project.png";
+import weather_app from "../public/assets/projects/weather-app.png";
+import sticky from "../public/assets/projects/sticky.png";
+import drum_kit from "../public/assets/projects/drum_kit.png";
+import dice_game from "../public/assets/projects/dice_game.png";
 
 const ProjectCards = () => {
   return (
@@ -36,6 +40,38 @@ const ProjectCards = () => {
               "TailwindCSS",
               "JS-Cookie",
             ]}
+          ></ProjectCard>
+          <ProjectCard
+            img_src={weather_app}
+            img_alt="/"
+            title="Weather App"
+            desc="This is single page weather web app made by using express and ejs. It shows weather of a city by searched parameter and retrieve it from openweather api."
+            url="https://magenta-rose-dog-cap.cyclic.app/"
+            techs={["Node", "Express", "EJS"]}
+          ></ProjectCard>
+          <ProjectCard
+            img_src={sticky}
+            img_alt="/"
+            title="Sticky"
+            desc="This is a sticky notes app to keep track of daily tasks."
+            url="https://sticky-7e0d8.web.app/"
+            techs={["React", "TailwindCSS", "ReactIcons"]}
+          ></ProjectCard>
+          <ProjectCard
+            img_src={drum_kit}
+            img_alt="/"
+            title="Drum Kit"
+            desc="a web page which emulate sounds of drum kit, its quite fun actually."
+            url="https://drum-kit-85ef6.firebaseapp.com/"
+            techs={["HTML", "CSS", "JavaScript"]}
+          ></ProjectCard>
+          <ProjectCard
+            img_src={dice_game}
+            img_alt="/"
+            title="Dice Game"
+            desc="This is a simple website which roll dices randomly, its just fun app if you dont have real dices lying around."
+            url="https://dicegame-435b8.web.app/"
+            techs={["HTML", "CSS", "JavaScript"]}
           ></ProjectCard>
         </div>
       </div>
