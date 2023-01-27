@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import pak_explorers from "../public/assets/projects/pak-explorers.png";
 import osum_project from "../public/assets/projects/osum_project.png";
@@ -9,6 +9,13 @@ import dice_game from "../public/assets/projects/dice_game.png";
 import whatsupp from "../public/assets/projects/whatsupp.png";
 
 const ProjectCards = () => {
+  const [matches, setMatches] = useState(null);
+  useEffect(() => {
+    window
+      .matchMedia("(min-width:768px)")
+      .addEventListener("change", (e) => setMatches(e.matches));
+  }, []);
+
   return (
     <div id="projects" className=" w-full">
       <div className="max-w-[1240px] mx-auto px-2 py-16">
@@ -25,6 +32,7 @@ const ProjectCards = () => {
             NextJs with responsive navbar and gallery slides."
             url="https://pak-explorers.vercel.app/"
             techs={["React", "NextJs"]}
+            matches={matches}
           ></ProjectCard>
           <ProjectCard
             img_src={osum_project}
@@ -35,6 +43,7 @@ const ProjectCards = () => {
             auth and other technologies. "
             url="https://ecommerce-osum.vercel.app/"
             techs={["NextJs", "NextAuth", "MongoDb", "TailwindCSS"]}
+            matches={matches}
           ></ProjectCard>
           <ProjectCard
             img_src={whatsupp}
@@ -43,6 +52,7 @@ const ProjectCards = () => {
             desc="This is clone of Whatsapp Web built with React,Socket, Express and MongoDB. It has authenticate users using Google auth with automatic prompt and save their conversation on database."
             url="https://whatsupp-8fed2.firebaseapp.com/"
             techs={["React", "Express", "Socket", "MongoDB", "MUI"]}
+            matches={matches}
           />
           <ProjectCard
             img_src={weather_app}
@@ -59,6 +69,7 @@ const ProjectCards = () => {
             desc="This is a sticky notes app to keep track of daily tasks."
             url="https://sticky-7e0d8.web.app/"
             techs={["React", "TailwindCSS", "ReactIcons"]}
+            matches={matches}
           ></ProjectCard>
           <ProjectCard
             img_src={drum_kit}
@@ -67,6 +78,7 @@ const ProjectCards = () => {
             desc="a web page which emulate sounds of drum kit, its quite fun actually."
             url="https://drum-kit-85ef6.firebaseapp.com/"
             techs={["HTML", "CSS", "JavaScript"]}
+            matches={matches}
           ></ProjectCard>
           <ProjectCard
             img_src={dice_game}
@@ -75,6 +87,7 @@ const ProjectCards = () => {
             desc="This is a simple website which roll dices randomly, its just fun app if you dont have real dices lying around."
             url="https://dicegame-435b8.web.app/"
             techs={["HTML", "CSS", "JavaScript"]}
+            matches={matches}
             hoverProp={true}
           ></ProjectCard>
         </div>

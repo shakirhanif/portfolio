@@ -11,6 +11,7 @@ const ProjectCard = ({
   url,
   techs,
   hoverProp,
+  matches,
 }) => {
   const [hover, setHover] = useState(false);
   return (
@@ -25,7 +26,7 @@ const ProjectCard = ({
     >
       <div
         className={
-          hover && !hoverProp
+          hover && !hoverProp && matches
             ? "absolute flex flex-col rounded-md shadow-2xl shadow-gray-700 hover:translate-y-[-1.05rem] ease-in duration-100 hover:bg-[#d4f7f6] hover:shadow-[#36a19e] hover:cursor-default  z-[10]"
             : "flex flex-col rounded-md shadow-2xl shadow-gray-700 hover:translate-y-[-1.05rem] ease-in duration-100 hover:bg-[#d4f7f6] hover:shadow-[#36a19e] hover:cursor-default"
         }
