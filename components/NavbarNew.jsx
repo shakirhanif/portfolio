@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link as LinkS, animateScroll as scroll } from "react-scroll";
+import Head from "next/head";
 
 const NavbarNew = () => {
   const [downloadCv, setDownloadCv] = useState(
@@ -87,8 +88,8 @@ const NavbarNew = () => {
               duration={500}
             >
               <div
-                className="name-bar text-[#5651e5] font-extrabold font-serif hover:cursor-pointer"
-                style={{ paddingLeft: "1rem" }}
+                className="name-bar text-[#5651e5] font-serif hover:cursor-pointer"
+                style={{ paddingLeft: "1rem", fontFamily: '"Kalam",cursive' }}
               >
                 Shakir Hanif
               </div>
@@ -221,7 +222,9 @@ const NavbarNew = () => {
                   download="ShakirCv"
                   id="downloadCv"
                   className="download-cv"
-                  style={{ pointerEvents: `${pointerEvent ? "auto" : "none"}` }}
+                  style={{
+                    pointerEvents: `${pointerEvent ? "auto" : "none"}`,
+                  }}
                 >
                   {downloadCv}
                 </a>

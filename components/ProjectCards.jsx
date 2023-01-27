@@ -34,13 +34,7 @@ const ProjectCards = () => {
             registeration, login and cart functionality with backend using next
             auth and other technologies. "
             url="https://ecommerce-osum.vercel.app/"
-            techs={[
-              "NextJs",
-              "NextAuth",
-              "MongoDb",
-              "TailwindCSS",
-              "JS-Cookie",
-            ]}
+            techs={["NextJs", "NextAuth", "MongoDb", "TailwindCSS"]}
           ></ProjectCard>
           <ProjectCard
             img_src={whatsupp}
@@ -81,6 +75,7 @@ const ProjectCards = () => {
             desc="This is a simple website which roll dices randomly, its just fun app if you dont have real dices lying around."
             url="https://dicegame-435b8.web.app/"
             techs={["HTML", "CSS", "JavaScript"]}
+            hoverProp={true}
           ></ProjectCard>
         </div>
       </div>
