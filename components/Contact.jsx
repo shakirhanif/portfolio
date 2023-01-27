@@ -111,7 +111,7 @@ const Contact = () => {
                         required: "Please enter name",
                       })}
                       id="name"
-                      className=" border-2 rounded-lg flex border-gray-300 "
+                      className=" border-2 rounded-lg flex border-gray-300 pl-[3px] "
                       type="text"
                       value={myForm.name}
                       onChange={(e) =>
@@ -127,7 +127,7 @@ const Contact = () => {
                       Phone
                     </label>
                     <input
-                      className=" border-2 rounded-lg flex border-gray-300 "
+                      className=" border-2 rounded-lg flex border-gray-300 pl-[3px] "
                       type="text"
                       id="phone"
                       {...register("phone")}
@@ -148,7 +148,7 @@ const Contact = () => {
                     Email
                   </label>
                   <input
-                    className=" border-2 rounded-lg flex border-gray-300 "
+                    className=" border-2 rounded-lg flex border-gray-300 pl-[3px]"
                     type="email"
                     id="email"
                     {...register("email", {
@@ -168,7 +168,7 @@ const Contact = () => {
                     Subject
                   </label>
                   <input
-                    className=" border-2 rounded-lg flex border-gray-300 "
+                    className=" border-2 rounded-lg flex border-gray-300 pl-[3px]"
                     type="text"
                     id="subject"
                     {...register("subject", {

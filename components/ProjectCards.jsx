@@ -6,6 +6,7 @@ import weather_app from "../public/assets/projects/weather-app.png";
 import sticky from "../public/assets/projects/sticky.png";
 import drum_kit from "../public/assets/projects/drum_kit.png";
 import dice_game from "../public/assets/projects/dice_game.png";
+import whatsupp from "../public/assets/projects/whatsupp.png";
 
 const ProjectCards = () => {
   return (
@@ -41,6 +42,14 @@ const ProjectCards = () => {
               "JS-Cookie",
             ]}
           ></ProjectCard>
+          <ProjectCard
+            img_src={whatsupp}
+            img_alt="/"
+            title="Whatsupp Chat App"
+            desc="This is clone of Whatsapp Web built with React,Socket, Express and MongoDB. It has authenticate users using Google auth with automatic prompt and save their conversation on database."
+            url="https://whatsupp-8fed2.firebaseapp.com/"
+            techs={["React", "Express", "Socket", "MongoDB", "MUI"]}
+          />
           <ProjectCard
             img_src={weather_app}
             img_alt="/"
