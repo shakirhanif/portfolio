@@ -179,6 +179,7 @@ class Field extends React.Component {
           "Launches a specified project in a new tab or separate window.",
           "List of projects currently include:",
           "Pak-Explorers",
+          "Blog Website",
           "Osum Ecommerce Store",
           "Whatsupp web",
           "Weather App",
@@ -646,6 +647,10 @@ class Field extends React.Component {
               "Built with React",
               `This is a simple Landing Page about photography club which capture sceneries in Pakistan.`,
               "",
+              "Blog Website",
+              "Built with React,MongoDB,Express and TailwindCSS",
+              `This is a full stack Blog Website made by using React for front-end and express api for backend.`,
+              "",
               "Osum-Store",
               "Built with NextJs,NextAuth,Node,Express,MongoDb,TailwindCss",
               "This is a Simple yet complete ecommerece store with full functionality and backend",
@@ -681,6 +686,10 @@ class Field extends React.Component {
           {
             title: "pak-explorers",
             live: "https://pak-explorers.vercel.app/",
+          },
+          {
+            title: "Blog Website",
+            live: "https://blog-eebd1.web.app/",
           },
           {
             title: "osum-store",

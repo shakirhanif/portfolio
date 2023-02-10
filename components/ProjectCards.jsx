@@ -7,6 +7,7 @@ import sticky from "../public/assets/projects/sticky.png";
 import drum_kit from "../public/assets/projects/drum_kit.png";
 import dice_game from "../public/assets/projects/dice_game.png";
 import whatsupp from "../public/assets/projects/whatsupp.png";
+import blog from "../public/assets/projects/blog.png";
 
 const ProjectCards = () => {
   return (
@@ -27,6 +28,14 @@ const ProjectCards = () => {
             techs={["React", "NextJs"]}
           ></ProjectCard>
           <ProjectCard
+            img_src={blog}
+            img_alt="/"
+            title="Blog"
+            desc="This is a full stack Blog Website made by using React for front-end and express api for backend."
+            url="https://blog-eebd1.web.app/"
+            techs={["React", "Express", "TailwindCss", "MongoDB"]}
+          ></ProjectCard>
+          <ProjectCard
             img_src={osum_project}
             img_alt="/"
             title="Osum-Store"
@@ -34,7 +43,7 @@ const ProjectCards = () => {
             registeration, login and cart functionality with backend using next
             auth and other technologies. "
             url="https://ecommerce-osum.vercel.app/"
-            techs={["NextJs", "NextAuth", "MongoDb", "TailwindCSS"]}
+            techs={["NextJs", "NextAuth", "MongoDB", "TailwindCSS"]}
           ></ProjectCard>
           <ProjectCard
             img_src={whatsupp}
