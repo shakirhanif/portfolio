@@ -23,7 +23,7 @@ const ProjectCards = () => {
             img_alt="School Management System"
             title="School Management System"
             desc="School Management System (SMS) is a content management system for conveniently manging Students, Teachers, Classes, Taking Attendance and Attendance report etc using PHP and MySql."
-            url="https://pak-explorers.vercel.app/"
+            url="https://pcsirschool.000webhostapp.com/index.php"
             techs={["PHP", "MySql", "Axios"]}
           ></ProjectCard>
           <ProjectCard
