@@ -245,8 +245,6 @@ class Field extends React.Component {
     } else {
       const userElem = document.querySelector("#field");
       const themePref = window.localStorage.getItem("reactTerminalThemePref");
-
-      // Disable this if you're working on a fork with auto run enabled... trust me.
       userElem.focus();
 
       document.querySelector("#useless-btn").addEventListener("click", () =>

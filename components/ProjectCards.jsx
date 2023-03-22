@@ -8,6 +8,7 @@ import drum_kit from "../public/assets/projects/drum_kit.png";
 import dice_game from "../public/assets/projects/dice_game.png";
 import whatsupp from "../public/assets/projects/whatsupp.png";
 import blog from "../public/assets/projects/blog.png";
+import sms from "../public/assets/projects/sms.png";
 
 const ProjectCards = () => {
   return (
@@ -17,6 +18,14 @@ const ProjectCards = () => {
         <h2 className="py-4 pb-8">What I've Built</h2>
         <div className=" grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {/* this is test if branch publish */}
+          <ProjectCard
+            img_src={sms}
+            img_alt="School Management System"
+            title="School Management System"
+            desc="School Management System (SMS) is a content management system for conveniently manging Students, Teachers, Classes, Taking Attendance and Attendance report etc using PHP and MySql."
+            url="https://pak-explorers.vercel.app/"
+            techs={["PHP", "MySql", "Axios"]}
+          ></ProjectCard>
           <ProjectCard
             img_src={pak_explorers}
             img_alt="Pak-Explorers Image"
