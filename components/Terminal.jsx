@@ -178,6 +178,7 @@ class Field extends React.Component {
           "PROJECT <TITLE>",
           "Launches a specified project in a new tab or separate window.",
           "List of projects currently include:",
+          "SMS",
           "Pak-Explorers",
           "Blog Website",
           "Osum Ecommerce Store",
@@ -641,6 +642,11 @@ class Field extends React.Component {
             text: [
               "To view any of these projects live or their source files, type PROJECT <TITLE>, e.g. PROJECT pak-explorers.",
               "",
+              "School Management System(SMS)",
+              "Built with PHP,Mysql",
+              `School Content Management System to manage students, teachers, classes, subjects and attendance`,
+              "",
+              "",
               "Pak-Explorers",
               "Built with React",
               `This is a simple Landing Page about photography club which capture sceneries in Pakistan.`,
@@ -681,6 +687,10 @@ class Field extends React.Component {
     } else if (cmd === "project") {
       if (params.length === 1) {
         const projects = [
+          {
+            title: "SMS",
+            live: "https://pcsirschool.000webhostapp.com/index.php",
+          },
           {
             title: "pak-explorers",
             live: "https://pak-explorers.vercel.app/",
